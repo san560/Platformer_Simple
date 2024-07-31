@@ -1,5 +1,22 @@
-[gd_scene format=3 uid="uid://cjheadftiarl4"]
+[gd_scene load_steps=3 format=3 uid="uid://cjheadftiarl4"]
+
+[ext_resource type="PackedScene" uid="uid://cp35dh3c02wmc" path="res://Scenes/Player.tscn" id="1_0oa4l"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_donic"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_0oa4l")]
+position = Vector2(2, -11)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(6, -2)
+scale = Vector2(-1.2896, 6.25216)
+zoom = Vector2(3, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, 34)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(0.96, 1)
+shape = SubResource("WorldBoundaryShape2D_donic")
